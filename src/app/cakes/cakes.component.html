@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-4">
+    <input type="text" class="form-control" style="margin: 10px;">
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 cake-item-list" *ngFor="let cakeItem of cakes">
+    <!-- Cake list -->
+    <app-cake-item [cake]="cakeItem"></app-cake-item>
+  </div>
+</div>
