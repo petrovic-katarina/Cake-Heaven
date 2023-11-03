@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Cake } from '../model/cake.model';
+import { User } from '../model/user.model';
 
 const baseUrl = 'http://localhost:3000/api';
 
@@ -36,6 +37,21 @@ export class CakeService {
   getIngredientsList(): Observable<string[]> {
     return this.http.get(`${baseUrl}/ingredients`).pipe(map((data: any) => {
       return data as Array<string> || [];
+    }))
+  }
+
+  // http://localhost:3000/api/cakes/:id
+
+  getOneCake(id: number): Observable<Cake> {
+    return this.http.get(`${baseUrl}/cakes/${id}`).pipe(map((data: any) => {
+      return new Cake(data);
+    }))
+  }
+
+  // http://localhost:3000/api/user
+  getUser(): Observable<User> {
+    return this.http.get(`${baseUrl}/user`).pipe(map((data: any) => {
+      return data && new User(data[0]);
     }))
   }
 }

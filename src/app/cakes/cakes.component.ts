@@ -16,7 +16,6 @@ export class CakesComponent implements OnInit, OnDestroy {
   ingredients: string[] = [];
   ingredientsSubscription: Subscription = new Subscription();
 
-
   queryParams = {
     sort: 'name',
     sortDirection: 'asc',

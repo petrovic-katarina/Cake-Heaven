@@ -13,6 +13,7 @@ import { CakesComponent } from './cakes/cakes.component';
 import { CakeItemComponent } from './cakes/cake-item/cake-item.component';
 import { CakeDetailsComponent } from './cakes/cake-details/cake-details.component';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

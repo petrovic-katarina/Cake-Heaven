@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="profileForm">
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input type="text" class="form-control" id="firstName" placeholder="" formControlName="firstName" [(ngModel)]="user.firstName">
+          <small class="text-danger" *ngIf="firstName?.touched && firstName?.errors?.['required']">
+            First Name is required!
+          </small>
+        </div><br>
+        <div class="form-group">
+          <label for="lastName">Last name</label>
+          <input type="text" class="form-control" id="lastName" placeholder="" formControlName="lastName" [(ngModel)]="user.lastName">
+          <small class="text-danger" *ngIf="firstName?.touched && firstName?.errors?.['required']">
+            Last Name is required!
+          </small>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email adress</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" formControlName="email" [(ngModel)]="user.email">
+          <small class="text-danger" *ngIf="firstName?.touched && firstName?.errors?.['required']">
+            Email is required!
+          </small>
+        </div><br>
+      </form>
+    </div>
+  </div>
+</div>
+
+
