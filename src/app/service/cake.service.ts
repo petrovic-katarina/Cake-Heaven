@@ -54,4 +54,12 @@ export class CakeService {
       return data && new User(data[0]);
     }))
   }
+
+  // http://localhost:3000/api/user/:id
+  changeUserData(user: User): Observable<User> {
+    return this.http.put(`${baseUrl}/user/${user._id}`, user).pipe(map((data: any) => {
+      return new User(data);
+    }))
+  }
+
 }

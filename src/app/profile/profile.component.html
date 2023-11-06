@@ -23,6 +23,11 @@
             Email is required!
           </small>
         </div><br>
+        <div>
+          <button type="button" class="btn btn-primary" (click)="onEditCliked()" *ngIf="!edit">Edit</button>
+          <button type="button" class="btn btn-primary" *ngIf="edit" (click)="onCancelCliked()">Cancel</button>
+          <button type="button" class="btn btn-primary" *ngIf="edit" (click)="onOkCliked()">Ok</button>
+        </div>
       </form>
     </div>
   </div>
