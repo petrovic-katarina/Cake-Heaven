@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { Cake } from '../model/cake.model';
 import { User } from '../model/user.model';
+import { Message } from '../model/message.model';
 
 const baseUrl = 'http://localhost:3000/api';
 
@@ -61,5 +62,14 @@ export class CakeService {
       return new User(data);
     }))
   }
+
+  // http://localhost:3000/api/messages
+  postMessage(message: Message): Observable<Message> {
+    return this.http.post(`${baseUrl}/messages`, message).pipe(map((data: any) => {
+      return new Message(data);
+    }))
+  }
+
+
 
 }

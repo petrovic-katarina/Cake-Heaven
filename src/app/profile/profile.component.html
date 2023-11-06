@@ -12,22 +12,23 @@
         <div class="form-group">
           <label for="lastName">Last name</label>
           <input type="text" class="form-control" id="lastName" placeholder="" formControlName="lastName" [(ngModel)]="user.lastName">
-          <small class="text-danger" *ngIf="firstName?.touched && firstName?.errors?.['required']">
+          <small class="text-danger" *ngIf="lastName?.touched && lastName?.errors?.['required']">
             Last Name is required!
           </small>
         </div><br>
         <div class="form-group">
           <label for="exampleInputEmail1">Email adress</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" formControlName="email" [(ngModel)]="user.email">
-          <small class="text-danger" *ngIf="firstName?.touched && firstName?.errors?.['required']">
+          <small class="text-danger" *ngIf="email?.touched && email?.errors?.['required']">
             Email is required!
           </small>
         </div><br>
         <div>
           <button type="button" class="btn btn-primary" (click)="onEditCliked()" *ngIf="!edit">Edit</button>
           <button type="button" class="btn btn-primary" *ngIf="edit" (click)="onCancelCliked()">Cancel</button>
-          <button type="button" class="btn btn-primary" *ngIf="edit" (click)="onOkCliked()">Ok</button>
+          <button type="submit" class="btn btn-primary" *ngIf="edit" (click)="onOkCliked()" [disabled]="profileForm.invalid">Ok</button>
         </div>
+        
       </form>
     </div>
   </div>

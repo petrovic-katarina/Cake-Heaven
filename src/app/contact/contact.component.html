@@ -1,1 +1,35 @@
-<p>contact works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form [formGroup]="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" placeholder="" formControlName="name">
+          <small class="text-danger" *ngIf="name?.touched && name?.errors?.['required']">
+            Name is required!
+          </small>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email adress</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" formControlName="email">
+          <small class="text-danger" *ngIf="email?.touched && email?.errors?.['required']">
+            Email is required!
+          </small>
+        </div><br>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Messages</label>
+          <textarea class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" formControlName="message" cols="30" rows="5"></textarea>
+          <small class="text-danger" *ngIf="message?.touched && message?.errors?.['required']">
+            Message is required!
+          </small>
+        </div><br>
+        <div>
+          <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid" (click)="sendMessage()">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
