@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { Cake } from '../model/cake.model';
 import { User } from '../model/user.model';
 import { Message } from '../model/message.model';
+import { Slide } from '../model/slide.model';
 
 const baseUrl = 'http://localhost:3000/api';
 
@@ -69,6 +70,13 @@ export class CakeService {
       return new Message(data);
     }))
   }
+
+  getSlides(): Observable<Slide[]> {
+    return this.http.get(`${baseUrl}/slideshow`).pipe(map((data: any) => {
+      return data && data.map((elem: any) => new Slide(elem)) || [];
+    }))
+  }
+
 
 
 
